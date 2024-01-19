@@ -334,7 +334,7 @@ def run(hps="teeny", port=29501, **kwargs):
     logger.iters = model.step
 
     wandb.init(
-        entity="f-madeddu99",
+        entity="XXXX",
         id="lqvae_monochannel_prior_bass_real",
         name="lqvae_monochannel_prior_bass_real",
         

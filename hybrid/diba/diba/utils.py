@@ -20,7 +20,7 @@ def unravel_indices(
     coord = []
     for dim in reversed(shape):
         coord.append(indices % dim)
-        indices = indices // dim #torch.div(indices, dim, rounding_mode='floor') # indices // dim
+        indices = indices // dim
     return tuple(coord[::-1])
 
 

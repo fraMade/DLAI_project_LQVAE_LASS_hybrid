@@ -303,9 +303,7 @@ def fast_beamsearch_separation(
     )
 
     # Note: x_0 and x_1 have shape (n_samples, num_tokens)
-    # print(f" x0_shape{x_0.shape}, x1_shape{x_1.shape}")
-    # return x_0[-1:], x_1[-1:]
-    return x_0, x_1 ########## changed , now it returns a number of candidates instead of ONE
+    return x_0, x_1 #x_0[-1:], x_1[-1:]
 
 
 def _sample(posterior_data: torch.Tensor, coords: torch.LongTensor) -> Tuple[torch.LongTensor, torch.LongTensor]:
@@ -358,12 +356,20 @@ def fast_sampled_separation(
     for sample_t in range(sample_tokens):
 
         # compute log priors
+        if sample_t == 0:
+            # print(f"smaple_t = 0 {len(xs_0[:, : sample_t + 1])}")
+            prior_0._prior.transformer.del_cache()
+            prior_1._prior.transformer.del_cache()
         log_p_0, past_0 = prior_0._get_logits(xs_0[:, : sample_t + 1], past_0)
         log_p_1, past_1 = prior_1._get_logits(xs_1[:, : sample_t + 1], past_1)
 
         # NOTE: during token separation batch-size should be equal to num. samples
         assert len(log_p_0) == len(log_p_1) == num_samples
         assert log_p_0.shape[-1] == log_p_1.shape[-1] == likelihood.get_tokens_count()
+
+        # assert len(log_p_0) == len(log_p_1)
+        # assert len(log_p_0) == 1 if sample_t == 0 else len(log_p_0) <= num_samples
+        # assert log_p_0.shape[-1] == log_p_1.shape[-1] == likelihood.get_tokens_count()
 
         # normalize priors and apply temperature
         log_p_0 = normalize_logits(log_p_0, temperature)
@@ -387,6 +393,7 @@ def fast_sampled_separation(
             x_0, x_1 = _sample(posterior_data, ll_coords)
         else:
             raise RuntimeError(f"Code {mixture[sample_t]} is not available in likelihood!")
+
 
         # Note: x_0, x_1 have shape (n_sample,)
         xs_0[:, sample_t + 1] = x_0

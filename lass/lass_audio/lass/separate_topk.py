@@ -311,8 +311,8 @@ def save_separation(
 def main(
     
     
-    audio_dir_1: str = "../../LQVAE-separation/data/downsampled/test_sources/bass",#"./data/downsampled/test_sources/bass", #"./data/downsampled/test_sources/bass",
-    audio_dir_2: str = "../../LQVAE-separation/data/downsampled/test_sources/drums",#"./data/downsampled/test_sources/drums",
+    audio_dir_1: str = "data/downsampled/test_sources/bass",#"./data/downsampled/test_sources/bass", #"./data/downsampled/test_sources/bass",
+    audio_dir_2: str = "data/downsampled/test_sources/drums",#"./data/downsampled/test_sources/drums",
     vqvae_path: str =  "logs/vq_vae/checkpoint_step_15588.pth.tar", #'/content/drive/MyDrive/deep_learning/project/LQVAE-separation/logs/lq_vae/checkpoint_step_15400.pth.tar', #"logs/lq_vae/checkpoint_step_15400.pth.tar",# #"./logs/lass-slakh-ckpts/vqvae.pth.tar", #, #"./logs/vq_vae/checkpoint_step_15588.pth.tar", #
     prior_1_path: str = "logs/prior_bass/checkpoint_latest_bass.pth.tar", #'/content/drive/MyDrive/deep_learning/project/LQVAE-separation/logs/prior_bass/checkpoint_latest.pth.tar', #"logs/prior_bass/checkpoint_latest.pth.tar",# #  #"./logs/prior_bass/checkpoint_latest.pth.tar", , # /checkpoint_latest.pth.tar,
     prior_2_path: str = "logs/prior_drums/checkpoint_latest_drums.pth.tar", #'/content/drive/MyDrive/deep_learning/project/LQVAE-separation/logs/prior_drums/checkpoint_latest.pth.tar',#"logs/prior_drums/checkpoint_latest.pth.tar", , #"./logs/prior_drums/checkpoint_latest.pth.tar" ,#"./logs/lass-slakh-ckpts/prior_drums_44100.pth.tar", #, #'/content/drive/MyDrive/deep_learning/project/LQVAE-separation/logs/prior_drums/checkpoint_latest.pth.tar',#  # #./logs/prior_drums/checkpoint_latest.pth.tar,
