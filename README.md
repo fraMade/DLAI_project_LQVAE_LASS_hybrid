@@ -51,18 +51,18 @@ To run the hybrid model I used essentially all of the code in LASS but changing 
 ## WandB
 WandB has been used to record the training phase of the model.
 ### LASS's VQVAE training
-![lass_loss](images/vqvae_test_loss.svg)
+![lass_loss](images/vqvae_test_loss.png)
 
 ### LASS's priors training
 
-![vqvae_priors_loss](images/vqvae_priors_loss.svg)
+![vqvae_priors_loss](images/vqvae_priors_loss.png)
 
 ### LQVAE's VAQVAE training
 
-![lqvae_loss](images/lqvae_test_loss.svg)
+![lqvae_loss](images/lqvae_test_loss.png)
 
 ### LQVAE's priors
 
-![lqvae_priors_loss](images/lqvae_test_loss.svg)
+![lqvae_priors_loss](images/lqvae_prior_loss.png)
 
 
