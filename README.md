@@ -34,10 +34,10 @@ A few modification were to be made in order for the code to run.
 - in separate.py few changes on the beam search function, it now returns all the candidates of the beam search instead of the last one
 - separate_topk.py has been added with few modification to make the topk separator work, in particular it now uses the likelihood object instead of the likelihood type
 - in diba.py fixes related to the topk separator, it now clear the prior cache at the start of a new sample
-
+- minor fix on dataset class code, to handle differente names in the datasets files  and to avoid taking .dur files
 ### LQVAE code modification
 - Added a new file called bayesian_test_new.py which is a modified bayesian_test.py but the data is handled with the same class as the one used in LASS 
-
+- added the datasets class file from lass and utils 
 ### Hybrid code
 To run the hybrid model I used essentially all of the code in LASS but changing the dir prior files with the LQVAE's priors and the make_models.py
 
